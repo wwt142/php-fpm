@@ -1,0 +1,4 @@
+FROM wangwentao/php-fpm
+
+ENV NGINX_CONFIG_DIR /etc/nginx
+

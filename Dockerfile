@@ -11,3 +11,5 @@ COPY conf.d/opcache.ini $PHP_INI_DIR/conf.d/
 
 RUN pecl install redis-4.0.1 \
     && docker-php-ext-enable redis
+
+EXPOSE 9000

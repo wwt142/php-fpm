@@ -2,3 +2,16 @@ FROM wangwentao/php-fpm
 
 ENV NGINX_CONFIG_DIR /etc/nginx
 
+COPY nginx/nginx.conf $NGINX_CONFIG_DIR/nginx.conf
+
+COPY nginx/conf.d $NGINX_CONFIG_DIR/conf.d
+
+COPY test/index.php /var/www/localhost
+
+COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
+
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+EXPOSE 80
+
+ENTRYPOINT ["entrypoint.sh"]
